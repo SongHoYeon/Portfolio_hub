@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+// 포지셔닝
+//.test{ @include absolute(top left); } => top:0; left:0
+//.test2{ @include absolute(all); } => top:0; left:0; right:0; bottom:0
+//.test3{ @include absolute(left 10px right 10px) } => left:10px; right:10px
+@function is-valid-length($value) {
+	@return (type-of($value) == "number" and not unitless($value))
+		or (index(auto initial inherit 0, $value) != null);
+}
+
+@mixin position($position, $args: ()) {
+	$offsets: top right bottom left;
+	position: $position;
+
+	@if $args == all {
+		top:0;left:0;right:0;bottom:0
+	} @else {
+
+		@each $offset in $offsets {
+			$index: index($args, $offset);
+
+			@if $index {
+				@if $index == length($args) {
+					#{$offset}: 0;
+				}
+				@else {
+					$next: nth($args, $index + 1);
+					@if is-valid-length($next) {
+						#{$offset}: $next;
+					}
+					@else if index($offsets, $next) {
+						#{$offset}: 0;
+					}
+					@else {
+						@warn "Invalid value `#{$next}` for offset `#{$offset}`.";
+					}
+				}
+			}
+		}
+
+	}
+}
+
+@mixin absolute($args: ()) {
+	@include position(absolute, $args);
+}
+
+@mixin fixed($args: ()) {
+	@include position(fixed, $args);
+}
+
+@mixin relative($args: ()) {
+	@include position(relative, $args);
+}
+
+// 말줄임
+@mixin ellipsis ($lines: null) {
+	@if ($lines == null) {
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+	} @else {
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-line-clamp: $lines;
+		-webkit-box-orient: vertical;
+	}
+}
+
+// width,height
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+// 가상 엘리먼트
+@mixin pseudoElement($display: block, $width: null, $height: null, $content: '') {
+	content: $content;
+	display: $display;
+	width: $width;
+	height: $height;
+	@if (type-of($display) == number) {
+		@error 'Check display value';
+	}
+}
+
+// 가상 엘리먼트로 clear
+@mixin clear($display: table){
+	@include pseudoElement($display);
+
+	@if($display == table) {
+		table-layout:fixed;
+	}
+	clear:both;
+}
+
+//@media sprite
+@mixin mediaSprite($spriteName, $extend: true) {
+	@if($extend) {
+		@include spriteImage($spriteName);
+		@include spriteImageSize($spriteName);
+		background-repeat: no-repeat;
+		@include spritePosition($spriteName);
+		@include spriteSize($spriteName);
+	} @else {
+		@include spritePosition($spriteName);
+		@include spriteSize($spriteName);
+	}
+}
