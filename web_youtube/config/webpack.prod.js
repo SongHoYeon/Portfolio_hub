@@ -17,25 +17,25 @@ module.exports = merge(common, {
     // Extracts CSS into separate files
     // Note: style-loader is for development, MiniCssExtractPlugin is for production
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
-      chunkFilename: '[id].css',
+        filename: 'styles/[name].[contenthash].css',
+        chunkFilename: '[id].css',
     }),
   ],
   module: {
     rules: [
-      {
+    {
         test: /\.(scss|css)$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              sourceMap: false,
+            MiniCssExtractPlugin.loader,
+            {
+                loader: 'css-loader',
+                options: {
+                importLoaders: 2,
+                sourceMap: false,
             },
-          },
-          'postcss-loader',
-          'sass-loader',
+            },
+            'postcss-loader',
+            'sass-loader',
         ],
       },
     ],
@@ -47,7 +47,7 @@ module.exports = merge(common, {
     // instead of having their own. This also helps with long-term caching, since the chunks will only
     // change when actual code changes, not the webpack runtime.
     runtimeChunk: {
-      name: 'runtime',
+    name: 'runtime',
     },
   },
   performance: {

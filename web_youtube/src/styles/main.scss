@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter.ttf');
+}
+
+@import './common/base';
+@import './common/mixins';
+
+html, body {
+    height: 100%;
+}
+
+.wrap {
+    height: 100%;
+}
+
+.wy_gnb {
+    @include fixed(top left right);
+    background-color: #fff;
+}
+
+.wy_title_wrap {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding: 0 16px;
+    white-space: nowrap;
+}
+
+.wy_btn_menu {
+    @include size(40px);
+
+    &:focus {
+        outline: 0;
+    }
+    flex-shrink: 0;
+    border: 0;
+    margin-right: 16px;
+    padding: 8px;
+    box-sizing: border-box;
+
+}
+
+.wy_title {
+    .logo {
+        display: block;
+        font-size: 0;
+    }
+
+    .ico_youtube {
+        width: 106px;
+        height: 24px;
+    }
+
+    .contry_tag {
+        display: inline-block;
+        margin-left: 2px;
+        vertical-align: top;
+        color: #aaa;
+        font-size: 10px;
+        line-height: 13px;
+    }
+}
+
+.wy_search_group {
+    flex: 1;
+
+    .wys_form {
+        border: 1px solid #ccc;
+        display: flex;
+        height: 30px;
+        margin-left: 40px;
+    }
+    .search_wrap {
+        padding: 2px 6px;
+        flex: 1;
+    }
+    
+    .inp_search {
+        &::placeholder {
+            color: #777; 
+        }
+        color: #111;
+        border: 0;
+        outline: 0;
+        line-height: 26px;
+    }
+
+    .btn_search {
+        width: 65px;
+        border-style: solid;
+        border-color: #ccc;
+        border-width: 0 0 0 1px;
+        .icon {
+            margin: 0 auto;
+        }
+    }
+}
+
+.wy_btn_group {
+    display: flex;
+    align-items: center;
+    .btn_menu, .btn_notice {
+        padding: 8px;
+        &:focus {
+            outline: 0;
+        }
+        border: 0;
+    }
+    .upload_a {
+        padding: 8px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .btn_account {
+        &:focus {
+            outline: 0;
+        }
+        border: 0;
+        padding: 0 8px;
+        margin: 1px 6px;
+
+        .icon {
+            border-radius: 50%;
+        }
+    }
+}
+
+.wy_contents {
+    background-color: #f9f9f9;
+    margin-top: 56px;
+    height: 100%
+}
+
+.wy_navigation {
+    @include fixed(top 56px left bottom);
+    background-color: #fff;
+    
+    .wyn_list {
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wyn_home, .wyn_popular, .wyn_subscribe, .wyn_originals, .wyn_keep {
+        display: block;
+        width: 72px;
+        padding: 16px 0 14px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 0;
+        line-height: 0;
+
+        .icon {
+            margin: 0 auto 6px;
+        }
+
+        .text {
+            @include ellipsis;
+
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4rem;
+        }
+
+        &[aria-selected="true"] {
+            .icon {
+                fill: #f00;
+            }
+            .text {
+                color: #c00;
+            }
+        }
+    }
+}
+
+.wy_contents_wrap {
+    margin-left: 72px;
+}
+
+.wyc_notice {
+    padding: 8px 16px 0 24px;
+    display: flex;
+    align-items: center;
+    background-color: #f2f8ff;
+}
+
+.wycn_noti {
+    flex: 1;
+    font-size: 0;
+    .icon {
+        margin-right: 16px;
+        display: inline-block;
+        vertical-align: top
+    }
+
+    .text {
+        @include ellipsis;
+        display: inline-block;
+        vertical-align: top;
+        max-width: 100%;
+        color: #030303;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 2.1rem;
+    }
+}
+
+.wycn_btn_wrap {
+    .btn_close, .change_a {
+        padding: 10px 16px;
+        color: #065fd4;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 17px;
+    }
+    
+    .btn_close {
+        border: 0;
+    }
+
+    .change_a {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+.wyc_video_list {
+    margin-top: 24px;
+    font-size: 0;
+}
+
+.wyv_item_a {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 8px 40px;
+    width: 33.3%;
+}
+
+.wyv_info_area {
+    margin-top: 12px;
+
+    .thumb {
+        @include size(36px);
+        margin-right: 12px;
+        border-radius: 50%;
+    }
+
+    .title {
+        color: #303038;
+    }
+}
