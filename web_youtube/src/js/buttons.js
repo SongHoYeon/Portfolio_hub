@@ -1,0 +1,3 @@
+function openNavigation () {
+    alert("A");
+}

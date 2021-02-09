@@ -114,15 +114,28 @@ html, body {
     }
 
     .btn_account {
+        @include relative;
+        @include size(32px);
+        
+        background-color: #fff;
+        border: 1px solid #000;
         &:focus {
             outline: 0;
         }
-        border: 0;
+        border-radius: 50%;
         padding: 0 8px;
         margin: 1px 6px;
 
         .icon {
             border-radius: 50%;
+        }
+
+        .name {
+            @include absolute(top 50% left 50%);
+
+            transform: translate(-50%, -50%);
+            font-size: 13px;
+            color: #303038;
         }
     }
 }
@@ -135,8 +148,12 @@ html, body {
 
 .wy_navigation {
     @include fixed(top 56px left bottom);
+    display: none;
     background-color: #fff;
     
+    &.wyn_show {
+        display: block;
+    }
     .wyn_list {
         margin-top: 4px;
         display: flex;
@@ -240,16 +257,67 @@ html, body {
     width: 33.3%;
 }
 
+.wyv_preview {
+    @include relative;
+
+    .playlist {
+        @include absolute(top bottom left 66% right);
+        background-color: rgba($color: #000, $alpha: 0.8);
+        font-size: 1.6rem;
+        line-height: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        align-items: center;
+
+        .icon {
+            fill: #fff;
+            margin-top: 4px;
+        }
+    }
+}
+
 .wyv_info_area {
     margin-top: 12px;
+    display: flex;
 
-    .thumb {
-        @include size(36px);
+    .thumb_wrap {
         margin-right: 12px;
-        border-radius: 50%;
+        .thumb {
+            @include size(36px);
+            border-radius: 50%;
+        }
     }
 
-    .title {
-        color: #303038;
+    .info_wrap {
+        flex: 1;
+        overflow: hidden;
+
+        .title {
+            @include ellipsis(2);
+            color: #303038;
+            font-size: 1.4rem;
+            line-height: 2rem;
+        }
+        .snipets {
+            margin-top: 4px;
+            .channel, .view {
+                @include ellipsis;
+                color: #606060;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+            }
+
+            .view {
+                .upload_date {
+                    &::before {
+                        content: "•";
+                        margin: 0 4px;
+                    }
+                }
+            }
+        }
     }
 }

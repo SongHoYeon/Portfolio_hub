@@ -12,7 +12,7 @@
             <!-- header -->
             <header class="wy_gnb">
                 <div class="wy_title_wrap">
-                    <button class="wy_btn_menu">
+                    <button class="wy_btn_menu" id="wy_btn_menu" aria-expanded="false">
                         <span class="blind">메뉴</span>
                         <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" ><g class="style-scope yt-icon"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" class="style-scope yt-icon"></path></g></svg>                    </button>
                     <h1 class="wy_title">
@@ -47,7 +47,8 @@
                             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope icon" style="pointer-events: none; display: block; width: 24px; height: 24px;"><g class="style-scope yt-icon"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" class="style-scope yt-icon"></path></g></svg>
                         </button>
                         <button type="button" class="btn_account" aria-haspopup="true">
-                            <img id="img" class="style-scope icon" alt="아바타 이미지" height="32" width="32" src="https://yt3.ggpht.com/yti/ANoDKi7QOZBdw5FoqJ8fN0AoDcfM1u6vUJFlQ4NkyA=s88-c-k-c0x00ffffff-no-rj-mo">
+                            <span class="name" id="account_name">ㄹㄹ</span>
+                            <!-- <img id="img" class="style-scope icon" alt="아바타 이미지" height="32" width="32" src="https://yt3.ggpht.com/yti/ANoDKi7QOZBdw5FoqJ8fN0AoDcfM1u6vUJFlQ4NkyA=s88-c-k-c0x00ffffff-no-rj-mo"> -->
                         </button>
                     </div>
                 </div>
@@ -55,7 +56,7 @@
             <!-- //header -->
             <!-- contents -->
             <div role="main" class="wy_contents">
-                <aside role="navigation" class="wy_navigation">
+                <aside role="navigation" class="wy_navigation" id="wy_navigation">
                     <div class="wyn_list">
                         <a href="#" class="wyn_home" aria-selected="true">
                             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope icon" style="pointer-events: none; display: block; width: 24px; height: 24px;"><g class="style-scope yt-icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8" class="style-scope yt-icon"></path></g></svg>
@@ -86,7 +87,7 @@
                             <div class="text">Youtube 데스크톱 버전을 사용하고 있습니다.</div>
                         </div>
                         <div class="wycn_btn_wrap">
-                            <button role="button" class="btn_close">닫기</button>
+                            <button role="button" class="btn_close" id="wycn_btn_close">닫기</button>
                             <a href="#" class="change_a">모바일로 전환</a>
                         </div>
                     </div>
@@ -96,17 +97,34 @@
                                 <img id="img" class="style-scope yt-img-shadow" alt="" width="100%" src="https://i.ytimg.com/vi/Yxp3L3KcvUI/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLDDjcmBjn6H4cRa0fC4Qc606umE0g">
                             </div>
                             <div class="wyv_info_area">
-                                <img id="img" class="style-scope thumb" alt="" width="48" src="https://yt3.ggpht.com/a-/AOh14Ghvk9NOn9PosLDuiumBVQkcXyRpLkAoayvL1A=s68-c-k-c0x00ffffff-no-rj-mo">
-                                <div class="title">일이삼사오육칠팔구십</div>
-                                <div class="snipets">
-                                    <div class="channel">일이삼사오육칠팔구십</div>
-                                    <div class=""></div>
+                                <div class="thumb_wrap">
+                                    <img id="img" class="style-scope thumb" alt="" width="48" src="https://yt3.ggpht.com/a-/AOh14Ghvk9NOn9PosLDuiumBVQkcXyRpLkAoayvL1A=s68-c-k-c0x00ffffff-no-rj-mo">
+                                </div>
+                                <div class="info_wrap">
+                                    <div class="title">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</div>
+                                    <div class="snipets">
+                                        <div class="channel">일이삼사오육칠팔구십</div>
+                                        <div class="view">조회수 <span class="count">123</span>회<span class="upload_date"><span class="date">6개월</span>전 </span></div>
+                                    </div>
                                 </div>
                             </div>
                         </a>
                         <a href="#" class="wyv_item_a">
                             <div class="wyv_preview">
                                 <img id="img" class="style-scope yt-img-shadow" alt="" width="100%" src="https://i.ytimg.com/vi/Yxp3L3KcvUI/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLDDjcmBjn6H4cRa0fC4Qc606umE0g">
+                                <div class="playlist">
+                                    <span class="blind">영상 수</span>
+                                    <span class="txt">50 +</span>
+                                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope icon" style="pointer-events: none; display: block; width: 24px; height: 24px;"><g class="style-scope yt-icon"><path d="M16.94 6.9l-1.4 1.46C16.44 9.3 17 10.58 17 12s-.58 2.7-1.48 3.64l1.4 1.45C18.22 15.74 19 13.94 19 12s-.8-3.8-2.06-5.1zM23 12c0-3.12-1.23-5.95-3.23-8l-1.4 1.45C19.97 7.13 21 9.45 21 12s-1 4.9-2.64 6.55l1.4 1.45c2-2.04 3.24-4.87 3.24-8zM7.06 17.1l1.4-1.46C7.56 14.7 7 13.42 7 12s.6-2.7 1.5-3.64L7.08 6.9C5.78 8.2 5 10 5 12s.8 3.8 2.06 5.1zM1 12c0 3.12 1.23 5.95 3.23 8l1.4-1.45C4.03 16.87 3 14.55 3 12s1-4.9 2.64-6.55L4.24 4C2.24 6.04 1 8.87 1 12zm9-3.32v6.63l5-3.3-5-3.3z" class="style-scope yt-icon"></path></g></svg>
+                                </div>
+                            </div>
+                            <div class="wyv_info_area">
+                                <div class="info_wrap">
+                                    <div class="title">내 관련 재생목록</div>
+                                    <div class="snipets">
+                                        <div class="channel">tvN 등</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
